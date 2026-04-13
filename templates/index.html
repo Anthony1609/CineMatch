@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMatch — Smart Movie Recommendations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <svg class="nav-logo-svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <circle cx="17" cy="17" r="16" stroke="url(#lg)" stroke-width="1.5"/>
+      <rect x="9"  y="12" width="3.5" height="11" rx="1.5" fill="url(#lg)"/>
+      <rect x="15" y="9"  width="3.5" height="17" rx="1.5" fill="url(#lg)"/>
+      <rect x="21" y="14" width="3.5" height="8"  rx="1.5" fill="url(#lg)"/>
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#E8C97A"/><stop offset="1" stop-color="#C9A84C"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div>
+      <div class="nav-title">CineMatch</div>
+      <div class="nav-sub">CSC 309 · Mini Project 4</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="navTo('intro')"     id="nav-home">Home</button>
+    <button class="nav-btn"        onclick="navTo('developer')" id="nav-dev">Developer</button>
+  </div>
+</nav>
+
+<!-- ══════════ INTRO ══════════ -->
+<div id="screen-intro" class="screen active">
+  <div class="hero-bg">
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <section class="hero-section">
+    <div class="hero-eyebrow">✦ Collaborative Filtering · Python Powered</div>
+    <h1 class="hero-heading">
+      Discover<br/><em>Your Next</em><br/><span class="grad-text">Favourite Film</span>
+    </h1>
+    <p class="hero-sub">
+      Rate movies you've seen. Our engine analyses your taste, finds people just like you,
+      and surfaces hidden gems using real <strong>Pandas + NumPy</strong> collaborative filtering.
+    </p>
+    <div class="name-form">
+      <input id="name-input" class="fancy-input" type="text" placeholder="Enter your name to begin…" maxlength="30"/>
+      <button class="btn-primary" onclick="startApp()">
+        Let's Go
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <p class="hero-hint">Rate at least 3 movies to unlock your recommendations</p>
+  </section>
+
+  <div class="poster-strip-wrap">
+    <div class="strip-fade-l"></div>
+    <div class="strip-fade-r"></div>
+    <div class="strip-track">
+      <img src="/static/posters/1.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/2.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/3.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/4.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/5.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/6.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/7.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/8.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/9.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/10.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/11.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/12.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/13.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/14.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/15.jpg" class="strip-img" alt=""/>
+      <!-- duplicate for seamless loop -->
+      <img src="/static/posters/1.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/2.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/3.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/4.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/5.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/6.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/7.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/8.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/9.jpg"  class="strip-img" alt=""/>
+      <img src="/static/posters/10.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/11.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/12.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/13.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/14.jpg" class="strip-img" alt=""/>
+      <img src="/static/posters/15.jpg" class="strip-img" alt=""/>
+    </div>
+  </div>
+
+  <section class="stats-section">
+    <div class="stat-item"><span class="stat-n">20</span><span class="stat-l">Films</span></div>
+    <div class="stat-item"><span class="stat-n">10</span><span class="stat-l">User Profiles</span></div>
+    <div class="stat-item"><span class="stat-n">Cosine</span><span class="stat-l">Similarity</span></div>
+    <div class="stat-item"><span class="stat-n">NumPy</span><span class="stat-l">Powered</span></div>
+  </section>
+
+  <section class="how-section">
+    <p class="section-eyebrow">How it works</p>
+    <h2 class="section-title">Three Steps to Your<br/><span class="grad-text">Perfect Film</span></h2>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <span class="step-emoji">⭐</span>
+        <h3 class="step-h">Rate Films</h3>
+        <p class="step-p">Score movies you've seen 1–5 stars. Skip anything you haven't watched yet.</p>
+      </div>
+      <div class="step-connector"><div class="connector-line"></div></div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <span class="step-emoji">🔍</span>
+        <h3 class="step-h">Find Neighbours</h3>
+        <p class="step-p">NumPy cosine similarity identifies users whose taste matches yours most closely.</p>
+      </div>
+      <div class="step-connector"><div class="connector-line"></div></div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <span class="step-emoji">🎯</span>
+        <h3 class="step-h">Receive Picks</h3>
+        <p class="step-p">Pandas aggregates neighbour ratings into weighted predictions — your personalised list.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ RATING ══════════ -->
+<div id="screen-rate" class="screen">
+  <div class="rate-header">
+    <div>
+      <p class="rate-welcome">Good taste, <strong id="rate-username-display"></strong> 👋</p>
+      <p class="rate-instruction">Rate films you've seen — the more you rate, the better your recommendations</p>
+    </div>
+    <div class="rate-header-right">
+      <div class="prog-ring-wrap">
+        <svg class="prog-ring" width="56" height="56" viewBox="0 0 56 56">
+          <circle cx="28" cy="28" r="23" fill="none" stroke="#1a1c24" stroke-width="4"/>
+          <circle id="prog-circle" cx="28" cy="28" r="23" fill="none" stroke="url(#pg)" stroke-width="4"
+            stroke-linecap="round" stroke-dasharray="144.5" stroke-dashoffset="144.5" transform="rotate(-90 28 28)"/>
+          <defs><linearGradient id="pg" x1="0" y1="0" x2="56" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#E8C97A"/><stop offset="1" stop-color="#C9A84C"/>
+          </linearGradient></defs>
+        </svg>
+        <span id="prog-text" class="prog-text">0</span>
+      </div>
+      <div>
+        <div class="prog-label">of 20 rated</div>
+        <button id="btn-recommend" class="btn-primary sm" disabled onclick="submitRatings()">Get Picks →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rate-layout">
+    <div class="movies-pane">
+      <div id="movies-grid" class="movies-grid"></div>
+    </div>
+    <aside class="rated-sidebar">
+      <div class="sidebar-top">
+        <span class="sidebar-h">Your Ratings</span>
+        <span class="sidebar-count-badge" id="sidebar-count">0</span>
+      </div>
+      <div id="sidebar-empty" class="sidebar-empty">
+        <div style="font-size:36px;margin-bottom:10px">🎬</div>
+        <p>Rate a film to see it here</p>
+      </div>
+      <div id="sidebar-list" class="sidebar-list"></div>
+      <div id="sidebar-cta" class="sidebar-cta-wrap" style="display:none">
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitRatings()">
+          Get Recommendations →
+        </button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════ RESULTS ══════════ -->
+<div id="screen-results" class="screen">
+  <div class="results-hero">
+    <div class="results-hero-glow"></div>
+    <p class="results-eyebrow">Personalised just for you</p>
+    <h1 class="results-h1">Here are your picks,<br/><span class="grad-text" id="result-username"></span></h1>
+    <div class="results-chips">
+      <div class="r-chip"><span id="rs-rated">0</span> films rated</div>
+      <div class="r-chip"><span id="rs-avg">—</span> avg ★</div>
+      <div class="r-chip"><span id="rs-recs">0</span> recommendations</div>
+    </div>
+  </div>
+
+  <div id="loading-indicator" class="loading-box" style="display:none">
+    <div class="reel-spin"></div>
+    <p class="loading-text">Running collaborative filtering…</p>
+  </div>
+
+  <div id="results-content" style="display:none">
+    <div class="results-body">
+      <h2 class="results-section-h">🎯 Top Recommendations</h2>
+      <div id="recs-grid" class="recs-grid"></div>
+
+      <div style="margin-top:60px">
+        <h2 class="results-section-h">📋 Films You Rated</h2>
+        <div id="rated-list-results" class="rated-results-grid"></div>
+      </div>
+
+      <div class="results-actions">
+        <button class="btn-ghost" onclick="rateAgain()">← Rate Again</button>
+        <button class="btn-primary" onclick="startOver()">Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ DEVELOPER ══════════ -->
+<div id="screen-developer" class="screen dev-page">
+  <div class="dev-hero">
+    <div class="dev-hero-bg"><div class="dev-orb1"></div><div class="dev-orb2"></div></div>
+
+    <div class="dev-photo-frame">
+      <div class="dev-photo-border">
+        <div class="dev-photo-inner">
+          <img src="{{ url_for('static', filename='developer_photo.jpg') }}" class="dev-photo" alt="Chukwuemeka Anthony"/>
+        </div>
+      </div>
+      <div class="dev-status"><span class="status-dot"></span>Active</div>
+    </div>
+
+    <h1 class="dev-name">Chukwuemeka Anthony</h1>
+    <p class="dev-role">Computer Science Student · CSC 309</p>
+    <div class="dev-reg">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Reg No: <strong>20231368075</strong>
+    </div>
+    <div class="dev-tags">
+      <span class="dev-tag">Python</span>
+      <span class="dev-tag">Flask</span>
+      <span class="dev-tag">Pandas</span>
+      <span class="dev-tag">NumPy</span>
+      <span class="dev-tag">Collaborative Filtering</span>
+      <span class="dev-tag">Web Development</span>
+    </div>
+  </div>
+
+  <div class="dev-body">
+    <div class="dev-grid">
+      <div class="dev-card">
+        <div class="dev-card-label">Project</div>
+        <h3 class="dev-card-h">About CineMatch</h3>
+        <p class="dev-card-p">CineMatch is a full-stack web application built for CSC 309 that demonstrates <strong style="color:var(--text)">User-Based Collaborative Filtering</strong> — the same technique used by Netflix, Spotify, and Amazon. Users rate films they've seen; the system finds similar users and predicts what else they'd enjoy using a weighted cosine similarity approach.</p>
+      </div>
+      <div class="dev-card">
+        <div class="dev-card-label">Tech Stack</div>
+        <h3 class="dev-card-h">Built With</h3>
+        <div class="tech-list">
+          <div class="tech-row"><div class="tech-dot gold"></div><div><strong>Flask</strong> — Web framework &amp; REST API routing</div></div>
+          <div class="tech-row"><div class="tech-dot purple"></div><div><strong>Pandas</strong> — User-Item Matrix via <code>pivot_table()</code></div></div>
+          <div class="tech-row"><div class="tech-dot blue"></div><div><strong>NumPy</strong> — Cosine similarity via dot product &amp; norm</div></div>
+          <div class="tech-row"><div class="tech-dot pink"></div><div><strong>HTML / CSS / JS</strong> — Responsive frontend with fetch API</div></div>
+        </div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-card-label">Algorithm</div>
+        <h3 class="dev-card-h">How the Engine Works</h3>
+        <ol class="algo-ol">
+          <li>Load <code>ratings.csv</code> and build User-Item Matrix with Pandas</li>
+          <li>Append the new user's ratings as a temporary row</li>
+          <li>Compute cosine similarity between new user and all stored profiles</li>
+          <li>Select the top-3 nearest neighbours by similarity score</li>
+          <li>Predict ratings via similarity-weighted average</li>
+          <li>Return top-6 highest predicted, unrated films</li>
+        </ol>
+      </div>
+      <div class="dev-card">
+        <div class="dev-card-label">API</div>
+        <h3 class="dev-card-h">Endpoints</h3>
+        <div class="endpoint-list">
+          <div class="ep-row"><span class="ep-method get">GET</span><code class="ep-path">/</code><span class="ep-desc">Serve the web app</span></div>
+          <div class="ep-row"><span class="ep-method get">GET</span><code class="ep-path">/api/movies</code><span class="ep-desc">Return all 20 movies as JSON</span></div>
+          <div class="ep-row"><span class="ep-method post">POST</span><code class="ep-path">/api/recommend</code><span class="ep-desc">Accept ratings → recommendations</span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="dev-footer">
+      Built with care for <strong>CSC 309</strong> · Simple Recommendation System · Mini Project 4
+    </footer>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
