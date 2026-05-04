@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CineMatch — Smart Movie Recommendations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
@@ -222,31 +222,32 @@
 <!-- ══════════ DEVELOPER ══════════ -->
 <div id="screen-developer" class="screen dev-page">
   <div class="dev-hero">
-    <div class="dev-hero-bg"><div class="dev-orb1"></div><div class="dev-orb2"></div></div>
-
-    <div class="dev-photo-frame">
-      <div class="dev-photo-border">
-        <div class="dev-photo-inner">
-          <!-- FIXED: Replaced with image_4775bc.png verbatim -->
-          <img src="image_4775bc.png" class="dev-photo" alt="Eyo Wisdom Archibong"/>
+    <div class="dev-header-profile">
+      <div class="profile-frame">
+        <div class="profile-photo-inner">
+          <img src="{{ url_for('static', filename='watermarked_img_11255490108811834061.jpg') }}" class="dev-photo" alt="Eyo Wisdom Archibong"/>
+          <div class="profile-arched-text">Eyo Wisdom Archibong</div>
         </div>
+        <div class="dev-status"><span class="status-dot"></span>Active</div>
       </div>
-      <div class="dev-status"><span class="status-dot"></span>Active</div>
-    </div>
+      
+      <h1 class="dev-name">Eyo Wisdom Archibong</h1>
+      
+      <p class="dev-role">Computer Science Student | CSC 309</p>
 
-    <h1 class="dev-name">Eyo Wisdom Archibong</h1>
-    <p class="dev-role">Computer Science Student · CSC 309</p>
-    <div class="dev-reg">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      Reg No: <strong>20231416782</strong>
-    </div>
-    <div class="dev-tags">
-      <span class="dev-tag">Python</span>
-      <span class="dev-tag">Flask</span>
-      <span class="dev-tag">Pandas</span>
-      <span class="dev-tag">NumPy</span>
-      <span class="dev-tag">Collaborative Filtering</span>
-      <span class="dev-tag">Web Development</span>
+      <div class="dev-registry-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg>
+        Reg No: <strong>20231416782</strong>
+      </div>
+
+      <div class="dev-tags">
+        <span class="dev-tag">Python</span>
+        <span class="dev-tag">Flask</span>
+        <span class="dev-tag">Pandas</span>
+        <span class="dev-tag">NumPy</span>
+        <span class="dev-tag">Collaborative Filtering</span>
+        <span class="dev-tag">Web Development</span>
+      </div>
     </div>
   </div>
 
