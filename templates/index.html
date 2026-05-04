@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CineMatch — Smart Movie Recommendations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;0,700;1,400;1,600&family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
@@ -223,14 +223,13 @@
 <div id="screen-developer" class="screen dev-page">
   <div class="dev-hero">
     <div class="dev-header-profile">
-      <div class="profile-frame">
-        <div class="profile-photo-inner">
-          <img src="{{ url_for('static', filename='watermarked_img_11255490108811834061.jpg') }}" class="dev-photo" alt="Eyo Wisdom Archibong"/>
-          <div class="profile-arched-text">Eyo Wisdom Archibong</div>
-        </div>
-        <div class="dev-status"><span class="status-dot"></span>Active</div>
+      <!-- FIXED SECTION: Simple container for the circular image and status -->
+      <div class="profile-picture-container">
+        <img src="{{ url_for('static', filename='image_471e8e.png') }}" class="circular-frame-photo" alt="Eyo Wisdom Archibong Profile Picture"/>
+        <div class="dev-status-indicator active"><span class="dot"></span>Active</div>
       </div>
       
+      <!-- Correct centered headers and text as seen in your rendering -->
       <h1 class="dev-name">Eyo Wisdom Archibong</h1>
       
       <p class="dev-role">Computer Science Student | CSC 309</p>
@@ -262,9 +261,9 @@
         <div class="dev-card-label">Tech Stack</div>
         <h3 class="dev-card-h">Built With</h3>
         <div class="tech-list">
-          <div class="tech-row"><div class="tech-dot gold"></div><div><strong>Flask</strong> — Web framework &amp; REST API routing</div></div>
+          <div class="tech-row"><div class="tech-dot gold"></div><div><strong>Flask</strong> — Web framework & REST API routing</div></div>
           <div class="tech-row"><div class="tech-dot purple"></div><div><strong>Pandas</strong> — User-Item Matrix via <code>pivot_table()</code></div></div>
-          <div class="tech-row"><div class="tech-dot blue"></div><div><strong>NumPy</strong> — Cosine similarity via dot product &amp; norm</div></div>
+          <div class="tech-row"><div class="tech-dot blue"></div><div><strong>NumPy</strong> — Cosine similarity via dot product & norm</div></div>
           <div class="tech-row"><div class="tech-dot pink"></div><div><strong>HTML / CSS / JS</strong> — Responsive frontend with fetch API</div></div>
         </div>
       </div>
